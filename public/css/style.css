@@ -1,0 +1,26 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-image: url('/images/background.png');
+  background-size: cover;
+  background-position: center;
+  color: #2e4411;
+  text-align: center;
+  padding: 30px;
+}
+
+input, button {
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.robot {
+  width: 200px;
+  animation: wave 2s infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+}

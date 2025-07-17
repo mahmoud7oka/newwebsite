@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= type %> - تفاصيل المواشي</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: url('/images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      direction: rtl;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1 {
+      color: #a0ffbf;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    section {
+      background: rgba(0,0,0,0.5);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    h2 {
+      color: #79d48f;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #79d48f;
+      padding-bottom: 8px;
+    }
+    .breed {
+      margin-bottom: 25px;
+      border-bottom: 1px solid #4caf50;
+      padding-bottom: 20px;
+    }
+    .breed img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    .disease {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      margin-bottom: 15px;
+      padding: 10px 15px;
+    }
+    ul {
+      list-style: inside disc;
+      margin: 5px 0 15px 0;
+      padding: 0;
+    }
+    .nav-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .nav-buttons a {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 25px;
+      margin: 0 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .nav-buttons a:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🐄 تفاصيل <%= type %></h1>
+
+  <section>
+    <h2>معلومات عامة</h2>
+    <p><strong>الاسم العلمي:</strong> <%= animal.الاسم_اللاتيني %></p>
+    <p><strong>الوصف:</strong> <%= animal.الوصف %></p>
+  </section>
+
+  <section>
+    <h2>السلالات</h2>
+
+    <% if (breed) { %>
+      <div class="breed">
+        <h3><%= breed.اسم_السلالة %></h3>
+        <img src="<%= breed.صورة %>" alt="صورة <%= breed.اسم_السلالة %>" />
+        <p><strong>مشهورة في:</strong> <%= breed.مشهورة_في || 'غير محدد' %></p>
+        <p><%= breed.الوصف %></p>
+
+        <% if (breed.الامراض && breed.الامراض.length > 0) { %>
+          <h4>الأمراض</h4>
+          <% breed.الامراض.forEach(disease => { %>
+            <% if (typeof disease === 'string') { %>
+              <div class="disease">
+                <p> - <%= disease %></p>
+              </div>
+            <% } else { %>
+              <div class="disease">
+                <p><strong>اسم المرض:</strong> <%= disease.اسم_المرض %></p>
+                <p><strong>التطعيم:</strong> <%= disease.التطعيم %></p>
+                <% if (disease.طرق_الوقاية) { %>
+                  <p><strong>طرق الوقاية:</strong></p>
+                  <ul>
+                    <% disease.طرق_الوقاية.forEach(prevent => { %>
+                      <li><%= prevent %></li>
+                    <% }); %>
+                  </ul>
+                <% } %>
+                <% if (disease.طرق_العلاج) { %>
+                  <p><strong>طرق العلاج:</strong></p>
+                  <ul>
+                    <% disease.طرق_العلاج.forEach(treat => { %>
+                      <li><%= treat %></li>
+                    <% }); %>
+                  </ul>
+                <% } else if (disease.العلاج) { %>
+                  <p><strong>العلاج:</strong> <%= disease.العلاج %></p>
+                <% } %>
+              </div>
+            <% } %>
+          <% }); %>
+        <% } %>
+
+        <% if (breed.زيادة_الإنتاج) { %>
+          <h4>طرق زيادة الإنتاج</h4>
+          <ul>
+            <% for (let key in breed.زيادة_الإنتاج) { %>
+              <li><strong><%= key %>:</strong> <%= breed.زيادة_الإنتاج[key] %></li>
+            <% } %>
+          </ul>
+        <% } %>
+      </div>
+    <% } else { %>
+      <% animal.السلالات.forEach(breed => { %>
+        <div class="breed">
+          <h3><%= breed.اسم_السلالة %></h3>
+          <% if (breed.صورة) { %>
+            <img src="<%= breed.صورة %>" alt="صورة <%= breed.اسم_السلالة %>" />
+          <% } %>
+          <p><strong>مشهورة في:</strong> <%= breed.مشهورة_في || 'غير محدد' %></p>
+          <p><%= breed.الوصف %></p>
+
+          <% if (breed.الامراض && breed.الامراض.length > 0) { %>
+            <h4>الأمراض</h4>
+            <% breed.الامراض.forEach(disease => { %>
+              <% if (typeof disease === 'string') { %>
+                <div class="disease">
+                  <p> - <%= disease %></p>
+                </div>
+              <% } else { %>
+                <div class="disease">
+                  <p><strong>اسم المرض:</strong> <%= disease.اسم_المرض %></p>
+                  <p><strong>التطعيم:</strong> <%= disease.التطعيم %></p>
+                  <% if (disease.طرق_الوقاية) { %>
+                    <p><strong>طرق الوقاية:</strong></p>
+                    <ul>
+                      <% disease.طرق_الوقاية.forEach(prevent => { %>
+                        <li><%= prevent %></li>
+                      <% }); %>
+                    </ul>
+                  <% } %>
+                  <% if (disease.طرق_العلاج) { %>
+                    <p><strong>طرق العلاج:</strong></p>
+                    <ul>
+                      <% disease.طرق_العلاج.forEach(treat => { %>
+                        <li><%= treat %></li>
+                      <% }); %>
+                    </ul>
+                  <% } else if (disease.العلاج) { %>
+                    <p><strong>العلاج:</strong> <%= disease.العلاج %></p>
+                  <% } %>
+                </div>
+              <% } %>
+            <% }); %>
+          <% } %>
+
+          <% if (breed.زيادة_الإنتاج) { %>
+            <h4>طرق زيادة الإنتاج</h4>
+            <ul>
+              <% for (let key in breed.زيادة_الإنتاج) { %>
+                <li><strong><%= key %>:</strong> <%= breed.زيادة_الإنتاج[key] %></li>
+              <% } %>
+            </ul>
+          <% } %>
+        </div>
+      <% }); %>
+    <% } %>
+
+  </section>
+
+  <div class="nav-buttons">
+    <a href="/animals/cattle">🏠 رجوع لقائمة المواشي</a>
+  </div>
+
+</body>
+</html>

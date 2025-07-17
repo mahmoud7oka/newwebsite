@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>🧪 تحاليل التربة</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body {
+      background: url('/images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      direction: rtl;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .container {
+      padding: 30px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2, h3 {
+      text-align: center;
+      margin: 30px 0 15px;
+      color: #a0ffbf;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #3e704f;
+      color: #fff;
+    }
+
+    .section {
+      background-color: rgba(0,0,0,0.4);
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      line-height: 2;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li::before {
+      content: "✅ ";
+      color: #9f9;
+    }
+
+    .nav-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .nav-buttons a {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 25px;
+      margin: 0 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #45a049;
+    }
+
+    @media screen and (max-width: 600px) {
+      table, th, td {
+        font-size: 13px;
+      }
+
+      .container {
+        padding: 15px 10px;
+      }
+
+      h2, h3 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>🧪 تحاليل التربة</h2>
+    <span class="visitor-count">👥 عدد الزوار: <%= visitors %></span>
+  </header>
+
+  <div class="section">
+    <h3>📊 النسب المثالية لتحاليل التربة حسب نوع الأرض</h3>
+    <table>
+      <tr>
+        <th>نوع الأرض</th>
+        <th>pH</th>
+        <th>EC (dS/m)</th>
+        <th>مادة عضوية (%)</th>
+        <th>نيتروجين (ppm)</th>
+        <th>فوسفور (ppm)</th>
+        <th>بوتاسيوم (ppm)</th>
+        <th>حديد (ppm)</th>
+        <th>زنك (ppm)</th>
+      </tr>
+      <tr>
+        <td>رملية</td>
+        <td>6.0 - 6.8</td>
+        <td>0.5 - 1.2</td>
+        <td>1 - 1.5</td>
+        <td>40 - 60</td>
+        <td>10 - 20</td>
+        <td>120 - 180</td>
+        <td>2.5 - 5</td>
+        <td>0.5 - 1.0</td>
+      </tr>
+      <tr>
+        <td>طينية</td>
+        <td>7.0 - 7.8</td>
+        <td>1.0 - 2.0</td>
+        <td>1.5 - 2.5</td>
+        <td>60 - 90</td>
+        <td>15 - 25</td>
+        <td>200 - 300</td>
+        <td>4.0 - 6</td>
+        <td>0.8 - 1.2</td>
+      </tr>
+      <tr>
+        <td>صفراء/مخلوطة</td>
+        <td>6.5 - 7.5</td>
+        <td>0.8 - 1.5</td>
+        <td>1.5 - 2.0</td>
+        <td>50 - 80</td>
+        <td>12 - 22</td>
+        <td>150 - 250</td>
+        <td>3.0 - 5.5</td>
+        <td>0.6 - 1.0</td>
+      </tr>
+    </table>
+    <p style="margin-top: 15px;">📌 <strong>ملاحظة:</strong> هذه القيم استرشادية وتختلف حسب نوع المحصول والمناخ.</p>
+  </div>
+
+  
+  <div class="container">
+    <h2>📋 مثال على تحليل تربة</h2>
+    <table>
+      <tr>
+        <th>البند</th>
+        <th>القيمة</th>
+        <th>التقييم</th>
+        <th>الوحدة</th>
+      </tr>
+      <tr><td>pH</td><td>7.5</td><td>متعادل</td><td>-</td></tr>
+      <tr><td>EC</td><td>1.2</td><td>جيد</td><td>dS/m</td></tr>
+      <tr><td>المادة العضوية</td><td>1.5</td><td>منخفض</td><td>%</td></tr>
+      <tr><td>نيتروجين</td><td>50</td><td>منخفض</td><td>ppm</td></tr>
+      <tr><td>فوسفور</td><td>12</td><td>متوسط</td><td>ppm</td></tr>
+      <tr><td>بوتاسيوم</td><td>180</td><td>جيد</td><td>ppm</td></tr>
+      <tr><td>الحديد</td><td>3.5</td><td>متوسط</td><td>ppm</td></tr>
+      <tr><td>الزنك</td><td>0.4</td><td>منخفض</td><td>ppm</td></tr>
+    </table>
+
+    <div class="section">
+      <h3>📖 كيف تقرأ التحليل؟</h3>
+      <ul>
+        <li><strong>pH:</strong> مثالي بين 6.5 و7.5. أقل = حامضي، أعلى = قلوي → كبريت زراعي.</li>
+        <li><strong>EC:</strong> لو أعلى من 2 → التربة مالحة → غسيل التربة بمياه نظيفة.</li>
+        <li><strong>المادة العضوية:</strong> أقل من 2% → أضف سماد بلدي أو كومبوست.</li>
+        <li><strong>النيتروجين:</strong> لو منخفض → نترات أمونيوم، يوريا، سماد أخضر.</li>
+        <li><strong>الفوسفور:</strong> منخفض؟ → استخدم سوبر فوسفات أو حمض فوسفوريك.</li>
+        <li><strong>البوتاسيوم:</strong> استخدم سلفات بوتاسيوم أو نترات بوتاسيوم.</li>
+        <li><strong>الزنك/الحديد:</strong> رش عناصر مخلبية (EDDHA أو EDTA).</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>🧱 معلومات إضافية تظهر في التحليل</h3>
+      <ul>
+        <li>نوع التربة: رملية، طينية، صفراء، مختلطة.</li>
+        <li>قوام التربة (رمل/طين/سلت): لتحديد التهوية والتصريف.</li>
+        <li>العمق الذي تم فيه أخذ العينة: غالبًا 0-30 سم.</li>
+        <li>المحصول المزروع أو المستهدف: مهم لتحديد التوصيات.</li>
+        <li>نشاط ميكروبي (في بعض التحاليل): إذا تم اختبار الكائنات الحية الدقيقة.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>✅ توصيات عامة بعد التحليل</h3>
+      <ul>
+        <li>لو EC عالية → اغسل التربة.</li>
+        <li>لو pH مرتفع → استخدم كبريت زراعي أو أسمدة حامضية.</li>
+        <li>نسبة المادة العضوية ضعيفة؟ زوّد كومبوست أو سماد عضوي.</li>
+        <li>احرص على تحليل التربة سنويًا أو قبل كل زراعة.</li>
+      </ul>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="/plant-nutrient-ranges" class="nav-button">🌿 نسب العناصر المثالية للنباتات</a>
+      <a href="/dashboard">🔙 رجوع</a>
+      <a href="/">🏠 القائمة الرئيسية</a>
+    </div>
+  </div>
+</body>
+</html>
