@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>نسب العناصر المثالية للنباتات</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
+    body {
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url('/images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #d7f3d7;
+      font-family: 'Cairo', sans-serif;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #9ee29e;
+      text-shadow: 0 0 5px #000;
+    }
+
+    .plant-section {
+      background-color: rgba(0, 0, 0, 0.55);
+      padding: 20px;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #2e7d32;
+    }
+
+    h3.section-title {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 1.6rem;
+      color: #a9dca9;
+      text-align: center;
+      text-shadow: 0 0 4px #000;
+    }
+
+    .plant-type {
+      font-size: 1rem;
+      color: #7ccc7c;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 0 0 3px #000;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #5c8a5c;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #3a6a3a;
+      color: #d7f3d7;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(58, 106, 58, 0.3);
+    }
+
+    .nutrient-name {
+      font-weight: 700;
+      background-color: #264d26;
+      color: #d7f3d7;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: "⚠️";
+      position: absolute;
+      left: 0;
+    }
+
+    .section-subtitle {
+      color: #9ee29e;
+      margin: 10px 0 6px 0;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-shadow: 0 0 2px #000;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1rem;
+      color: #9ee29e;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid #9ee29e;
+      padding: 10px 15px;
+      border-radius: 10px;
+      width: 180px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: background-color 0.3s, color 0.3s;
+      text-shadow: 0 0 2px #000;
+    }
+
+    .back-link:hover {
+      background-color: #9ee29e;
+      color: #1e2a1f;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🌿 نسب العناصر المثالية للنباتات</h2>
+
+  <% plantNutrientData.forEach(plant => { %>
+    <div class="plant-section">
+      <h3 class="section-title"><%= plant.اسم %></h3>
+      <% if (plant.type) { %>
+        <p class="plant-type">النوع: <%= plant.type %></p>
+      <% } %>
+
+      <table>
+        <thead>
+          <tr>
+            <th>العنصر</th>
+            <th>النسبة المثالية</th>
+            <th>أضرار الزيادة</th>
+            <th>أضرار النقص</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Object.entries(plant.العناصر).forEach(([element, details]) => { %>
+            <tr>
+              <td class="nutrient-name"><%= element %></td>
+              <td><%= details.النسبة_المثالية %></td>
+              <td>
+                <% if(details.أضرار_الزيادة && details.أضرار_الزيادة.length > 0) { %>
+                  <ul style="margin:0; padding-left: 15px;">
+                    <% details.أضرار_الزيادة.forEach(damage => { %>
+                      <li><%= damage %></li>
+                    <% }) %>
+                  </ul>
+                <% } else { %>
+                  لا توجد معلومات
+                <% } %>
+              </td>
+              <td>
+                <% if(details.أضرار_النقص && details.أضرار_النقص.length > 0) { %>
+                  <ul style="margin:0; padding-left: 15px;">
+                    <% details.أضرار_النقص.forEach(damage => { %>
+                      <li><%= damage %></li>
+                    <% }) %>
+                  </ul>
+                <% } else { %>
+                  لا توجد معلومات
+                <% } %>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  <% }) %>
+
+  <a href="/dashboard" class="back-link">🔙 رجوع إلى لوحة التحكم</a>
+
+</body>
+</html>

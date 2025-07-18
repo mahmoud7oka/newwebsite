@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>AgriGuide - AgroBot</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: url('/images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      direction: rtl;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .visitor-count {
+      font-size: 14px;
+      color: #ccc;
+    }
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 50px;
+      min-height: calc(100vh - 80px);
+    }
+    .text-section {
+      max-width: 50%;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .start-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .start-btn:hover {
+      background-color: #0056b3;
+    }
+    .nav-buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+    }
+    .nav-buttons a {
+      margin-right: 10px;
+      background: rgba(255,255,255,0.1);
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+    }
+    .nav-buttons a:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    .robot-img {
+      max-width: 400px;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>🌿 AgriGuide</h2>
+    <span class="visitor-count">👥 عدد الزوار: <%= visitors %></span>
+  </header>
+
+  <div class="content">
+    <div class="text-section">
+      <h1>مرحبًا بك في AgriGuide Website 👨‍🌾</h1>
+      <p>
+        من خلال هذا الموقع تقدر تتعرف على أمراض النباتات المختلفة وطريقة علاجها، والمبيدات المناسبة لها، وكمان نصائح لزيادة الإنتاج وتحسين جودة التربة والمعلومات عن الثروة الحيوانية.
+      </p>
+      <form action="/dashboard" method="GET">
+        <button class="start-btn">🚀 انطلاق</button>
+      </form>
+    </div>
+    <img src="/images/robot.gif" alt="" class="robot-img">
+  </div>
+
+  <div class="nav-buttons">
+    <a href="/">اعادة التحميل</a>
+  </div>
+</body>
+</html>

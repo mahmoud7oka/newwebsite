@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>🐟 أنواع الأسماك</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: url('/images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      direction: rtl;
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 16px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 30px;
+      color: #a0ffbf;
+    }
+    .animal-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .animal-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .animal-card:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .animal-card a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .animal-card .info {
+      margin-top: 10px;
+      font-size: 15px;
+      color: #ccc;
+    }
+    .nav-buttons {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .nav-buttons a {
+      background: rgba(255,255,255,0.1);
+      padding: 10px 20px;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.2s;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .nav-buttons a:hover {
+      background: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>🐟 أنواع الأسماك</h2>
+    <span class="visitor-count">👥 عدد الزوار: <%= visitors %></span>
+  </header>
+
+  <div class="container">
+    <h1>📋 قائمة الأسماك</h1>
+
+    <div class="animal-list">
+      <% animals.forEach(animal => { %>
+        <div class="animal-card">
+          <a href="/animals/fish/<%= encodeURIComponent(animal.مفتاح) %>"><%= animal.مفتاح %></a>
+          <div class="info">الاسم العربي: <%= animal.الاسم_العربي %></div>
+          <div class="info">الاسم العلمي: <%= animal.الاسم_العلمي %></div>
+        </div>
+      <% }); %>
+    </div>
+
+    <div class="nav-buttons">
+       <a href="/animals">🔙 رجوع</a>
+      <a href="/">🏠 القائمة الرئيسية</a>
+    </div>
+  </div>
+
+</body>
+</html>
+
+

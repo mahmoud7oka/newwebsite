@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>📈 زيادة الإنتاج</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: url('/images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Cairo', sans-serif;
+      color: white;
+      direction: rtl;
+      padding: 0;
+      margin: 0;
+    }
+
+    header {
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      margin: 0;
+    }
+
+    .content {
+      padding: 40px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      margin: 40px;
+      border-radius: 16px;
+      font-size: 18px;
+      line-height: 2;
+    }
+
+    .button-group {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .button-group a {
+      text-decoration: none;
+      background-color: #4caf50;
+      color: white;
+      padding: 15px 30px;
+      margin: 10px;
+      display: inline-block;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .button-group a:hover {
+      background-color: #3d8c42;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>📈 زيادة إنتاج الأرض</h2>
+    <span class="visitor-count">👥 عدد الزوار: <%= visitors %></span>
+  </header>
+
+  <div class="content">
+    <p>
+      أي صاحب أرض أو مهندس زراعي لازم دايمًا يفكر إزاي يزود كمية الإنتاج من أرضه بجودة عالية، أو على الأقل يحافظ على نفس الجودة.
+      ده بيساعد في توفير احتياجات السوق من الغذاء وغيره، وبيكون كمان مصدر ربحي كبير ليه ولمجتمعه، وبيقدم فائدة زراعية حقيقية.
+    </p>
+
+    <div class="button-group">
+      <a href="/productivity/minerals">🧪 العناصر المعدنية</a>
+      <a href="/productivity/organics">🌿 العناصر العضوية</a>
+      <a href="/productivity/chemicals">🧴 المبيدات والأسمدة</a>
+
+      <div class="nav-buttons">
+        <a href="/dashboard">🔙 رجوع</a>
+        <a href="/">🏠 القائمة الرئيسية</a>
+      </div>
+</body>
+</html>

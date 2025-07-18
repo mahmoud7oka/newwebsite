@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>لوحة التحكم - مساعد الزراعة</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Noto+Color+Emoji" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Cairo', 'Noto Color Emoji', sans-serif;
+    }
+    body {
+      background: url('/images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      direction: rtl;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .visitor-count {
+      font-size: 16px;
+      color: #e0e0e0;
+    }
+    h1 {
+      font-size: 40px;
+      margin: 40px 0 20px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 10px;
+      border-radius: 12px;
+      width: fit-content;
+      margin-inline: auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 30px 20px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 20px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+    .card:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+    }
+    a {
+      text-decoration: none;
+      color: white;
+    }
+    .nav-buttons {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    .nav-buttons a {
+      background: rgba(255,255,255,0.1);
+      padding: 10px 20px;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .nav-buttons a:hover {
+      background: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>🌿 مساعد الزراعة</h2>
+    <span class="visitor-count">👥 عدد الزوار: <%= visitors %></span>
+  </header>
+
+  <h1>اختر أحد الأقسام الرئيسية 👇</h1>
+
+  <div class="grid">
+    <a href="/plants"><div class="card">🌿 النباتات</div></a>
+    <a href="/soil"><div class="card">🧪 عناصر التربة</div></a>
+    <a href="/productivity"><div class="card">📈 زيادة الإنتاج</div></a>
+    <a href="/animals"><div class="card">🐄 الحيوانات</div></a>
+    <a href="/analysis"><div class="card">🧪 تحاليل التربة</div></a>
+    <a href="/diseases"><div class="card">🦠 الأمراض</div></a>
+  </div>
+
+  <div class="nav-buttons">
+    <a href="/">🏠 الرئيسية</a>
+  <a href="/">🔙 رجوع</a>
+  </div>
+</body>
+</html>

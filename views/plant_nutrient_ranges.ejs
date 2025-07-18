@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>نسب العناصر المثالية للنباتات</title>
+  <style>
+    body {
+      background: #1e2a1f;
+      color: #d7f3d7;
+      font-family: 'Cairo', sans-serif;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #9ee29e;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #5c8a5c;
+      text-align: center;
+      vertical-align: middle;
+    }
+    th {
+      background-color: #3a6a3a;
+      color: #d7f3d7;
+    }
+    tr:nth-child(even) {
+      background-color: rgba(58, 106, 58, 0.3);
+    }
+    .section-title {
+      margin-top: 40px;
+      margin-bottom: 15px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #a9dca9;
+    }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1rem;
+      color: #9ee29e;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid #9ee29e;
+      padding: 10px 15px;
+      border-radius: 10px;
+      width: 180px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .back-link:hover {
+      background-color: #9ee29e;
+      color: #1e2a1f;
+      text-decoration: none;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px 0;
+    }
+    ul li {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🌿 نسب العناصر المثالية للنباتات</h2>
+
+  <% Object.keys(plantNutrientData).forEach(plantName => { 
+       const plant = plantNutrientData[plantName]; %>
+
+    <div class="plant-section">
+      <h3 class="section-title"><%= plantName %></h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>العنصر</th>
+            <th>النسبة المثالية</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% Object.entries(plant["النسب المثالية"]).forEach(([element, range]) => { %>
+            <tr>
+              <td><%= element %></td>
+              <td><%= range %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <h4>أضرار زيادة النسبة:</h4>
+      <ul>
+        <% plant["أضرار الزيادة"].forEach(damage => { %>
+          <li>⚠️ <%= damage %></li>
+        <% }) %>
+      </ul>
+
+      <h4>أضرار نقص النسبة:</h4>
+      <ul>
+        <% plant["أضرار النقص"].forEach(damage => { %>
+          <li>⚠️ <%= damage %></li>
+        <% }) %>
+      </ul>
+
+    </div>
+
+  <% }) %>
+
+  <a href="/dashboard" class="back-link">🔙 رجوع إلى لوحة التحكم</a>
+
+</body>
+</html>

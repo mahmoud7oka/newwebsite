@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= type %> - تفاصيل الطيور</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: url('/images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      direction: rtl;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h1 {
+      color: #a0ffbf;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    section {
+      background: rgba(0,0,0,0.5);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    h2 {
+      color: #79d48f;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #79d48f;
+      padding-bottom: 8px;
+    }
+    .breed {
+      margin-bottom: 25px;
+      border-bottom: 1px solid #4caf50;
+      padding-bottom: 20px;
+    }
+    .breed img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    ul {
+      list-style: inside disc;
+      margin: 5px 0 15px 0;
+      padding: 0;
+    }
+    .nav-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .nav-buttons a {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 25px;
+      margin: 0 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .nav-buttons a:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🐦 تفاصيل <%= animal.الاسم_العربي %></h1>
+
+  <section>
+    <h2>معلومات عامة</h2>
+    <p><strong>الاسم العلمي:</strong> <%= animal.الاسم_العلمي %></p>
+    <p><strong>الوصف:</strong> <%= animal.وصف %></p>
+  </section>
+
+  <section>
+    <h2>السلالات</h2>
+
+    <% if (animal.سلالات && animal.سلالات.length > 0) { %>
+      <% animal.سلالات.forEach(breed => { %>
+        <div class="breed">
+          <h3><%= breed.اسم_السلالة %></h3>
+
+          <% if (breed.صورة) { %>
+            <img src="<%= breed.صورة %>" alt="صورة <%= breed.اسم_السلالة %>" />
+          <% } %>
+
+          <ul>
+            <li><strong>متوسط وزن البيضة:</strong> <%= breed.وزن_البيضة_بالجرام %> جرام</li>
+            <li><strong>مدة البلوغ الجنسي:</strong> <%= breed.مدة_البلوغ_الجنسي_باليوم %> يوم</li>
+            <% if (breed.عدد_البيض_سنويا) { %>
+              <li><strong>عدد البيض سنويًا:</strong> <%= breed.عدد_البيض_سنويا %></li>
+            <% } %>
+            <% if (breed.وزن_الذكر_البالغ_بالكجم) { %>
+              <li><strong>وزن الذكر البالغ:</strong> <%= breed.وزن_الذكر_البالغ_بالكجم %> كجم</li>
+            <% } %>
+            <% if (breed.وزن_الأنثى_البالغة_بالكجم) { %>
+              <li><strong>وزن الأنثى البالغة:</strong> <%= breed.وزن_الأنثى_البالغة_بالكجم %> كجم</li>
+            <% } %>
+            <% if (breed.درجة_الحرارة_المناسبة) { %>
+              <li><strong>درجة الحرارة المناسبة:</strong> <%= breed.درجة_الحرارة_المناسبة %></li>
+            <% } %>
+            <% if (breed.مكان_التربية_المناسب) { %>
+              <li><strong>مكان التربية المناسب:</strong> <%= breed.مكان_التربية_المناسب %></li>
+            <% } %>
+          </ul>
+
+          <p><%= breed.وصف %></p>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>لا توجد سلالات مسجلة لهذا النوع.</p>
+    <% } %>
+  </section>
+
+  <div class="nav-buttons">
+    <a href="/animals/birds">🔙 رجوع لقائمة الطيور</a>
+    <a href="/animals">🏡 القائمة الرئيسية للحيوانات</a>
+  </div>
+

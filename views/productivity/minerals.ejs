@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>🧪 العناصر المعدنية</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: url('/images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Cairo', sans-serif;
+      color: white;
+      direction: rtl;
+      padding: 0;
+      margin: 0;
+    }
+
+    header {
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      margin: 0;
+    }
+
+    .visitor-count {
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 26px;
+      margin: 30px 0 10px;
+      color: #a0e3a0;
+    }
+
+    .elements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px 40px;
+    }
+
+    .card {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+      color: #ffd700;
+    }
+
+    .card p {
+      margin: 5px 0;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .nav-buttons {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .nav-buttons a {
+      text-decoration: none;
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 25px;
+      margin: 0 10px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>🧪 العناصر المعدنية</h2>
+    <span class="visitor-count">👥 عدد الزوار: <%= visitors %></span>
+  </header>
+
+  <h2 class="section-title">أهم العناصر المعدنية ودورها في زيادة إنتاج الأرض</h2>
+
+  <div class="elements-grid">
+    <% minerals.forEach(elem => { %>
+      <div class="card">
+        <h3><%= elem["العنصر"] %></h3>
+        <p><strong>الفائدة:</strong> <%= elem["الفائدة"] %></p>
+        <p><strong>الكمية المناسبة:</strong> <%= elem["الكمية المناسبة"] %></p>
+        <p><strong>زيادة الإنتاج:</strong> <%= elem["زيادة الإنتاج"] %></p>
+        <p><strong>أضراره عند الزيادة:</strong> <%= elem["الأضرار عند الزيادة"] %></p>
+      </div>
+    <% }) %>
+  </div>
+
+
+  <div class="nav-buttons">
+    <a href="/productivity">🔙 رجوع</a>
+  </div>
+</body>
+</html>

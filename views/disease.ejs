@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title><%= diseaseName %> - تفاصيل المرض</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Noto+Color+Emoji" rel="stylesheet">
+  <style>
+    * {
+      font-family: 'Cairo', 'Noto Color Emoji', sans-serif;
+    }
+    body {
+      background: url('/images/background.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      direction: rtl;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    .visitor-count {
+      font-size: 16px;
+      color: #e0e0e0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 16px;
+    }
+    h1 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 25px;
+    }
+    .section h2 {
+      color: #a0e3a0;
+      margin-bottom: 10px;
+    }
+    .section p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .images {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .images img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      margin: 10px 0;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .nav-buttons a {
+      background: rgba(255,255,255,0.1);
+      padding: 10px 20px;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .nav-buttons a:hover {
+      background: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>🌿 مساعد الزراعة</h2>
+    <span class="visitor-count">👥 عدد الزوار: <%= visitors %></span>
+  </header>
+
+  <div class="container">
+    <h1>🦠 <%= diseaseName %></h1>
+
+    <div class="section">
+      <h2>📄 الوصف</h2>
+      <p><%= disease["الوصف"] %></p>
+    </div>
+    <div class="section">
+      <h2>🧬 الأعراض</h2>
+      <p><%= disease["الأعراض"] %></p>
+    </div>
+    <div class="section">
+      <h2>🧫 الأسباب</h2>
+      <p><%= disease["الأسباب"] %></p>
+    </div>
+    <div class="section">
+      <h2>🛡️ الوقاية</h2>
+      <p><%= disease["الوقاية"] %></p>
+    </div>
+    <div class="section">
+      <h2>💊 العلاج</h2>
+      <p><%= disease["العلاج"] %></p>
+    </div>
+    <div class="section">
+      <h2>☣️ الضرر على الإنسان</h2>
+      <p><%= disease["الضرر على الإنسان"] %></p>
+    </div>
+    <div class="section">
+      <h2>🧪 أفضل مبيد</h2>
+      <p>الاسم: <strong><%= disease["أفضل مبيد"]["الاسم"] %></strong></p>
+      <p>الوصف: <%= disease["أفضل مبيد"]["الوصف"] %></p>
+      <p>الخطورة: <%= disease["أفضل مبيد"]["الخطورة"] %></p>
+    </div>
+
+    <div class="images">
+      <div>
+        <h3>📸 صورة المرض</h3>
+        <img src="/<%= disease["صورة المرض"] %>" alt="صورة المرض">
+      </div>
+      <div>
+        <h3>🧴 صورة المبيد</h3>
+        <img src="/<%= disease["صورة المبيد"] %>" alt="صورة المبيد">
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="/">🏠 القائمة الرئيسية</a>
+      <a href="javascript:history.back()">🔙 رجوع</a>
+    </div>
+  </div>
+</body>
+</html>
